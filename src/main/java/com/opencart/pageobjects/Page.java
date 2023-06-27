@@ -6,19 +6,21 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public abstract class Page {
-    @FindBy(xpath = "//i[@class='fa-solid fa-user']")
-    protected WebElement accountIcon;
-    @FindBy(xpath = "//a[@class='dropdown-item'][normalize-space()='Register']")
-    protected WebElement registerBtn;
 
     public Page(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    public void navigateToRegisterPageFromHeaderMenu() {
-        accountIcon.click();
-        System.out.println("The Account Icon was clicked");
-        registerBtn.click();
-        System.out.println("The Register Button was clicked");
+    @FindBy(xpath = "//i[@class='fa-solid fa-user']")
+    protected WebElement myAccountButton;
+
+    @FindBy(xpath = "//a[@class='dropdown-item'][normalize-space()='Register']")
+    protected WebElement registerButton;
+
+    public void navigateToRegisterPage() {
+        myAccountButton.click();
+        System.out.println("The my account button was clicked");
+        registerButton.click();
+        System.out.println("The register button was clicked");
     }
 }

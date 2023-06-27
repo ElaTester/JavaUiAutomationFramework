@@ -9,12 +9,12 @@ public class AccountCreatedPage extends Page{
         super(driver);
     }
 
-    @FindBy(xpath = "//a[@class='dropdown-item'][normalize-space()='Logout']")
-    private WebElement logoutOption;
+    @FindBy(xpath = "//i[@class='fa-solid fa-user']")
+    private WebElement logOutOption;
 
-    public void logoutFromTheAccount(){
-        accountIcon.click();
-        logoutOption.click();
-        System.out.println("The user is logged out");
+    public void setLogOutFromTheAccount() {
+        myAccountButton.click();
+        logOutOption.click();
+        System.out.println("The user is logged out ");
     }
 }

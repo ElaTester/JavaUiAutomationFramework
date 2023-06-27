@@ -10,39 +10,36 @@ public class RegisterPage extends Page{
         super(driver);
     }
 
-    @FindBy(id = "input-firstname")
-    private WebElement firstNameInput;
-    @FindBy(id = "input-lastname")
+    @FindBy(xpath = "//input[@id='input-firstname']")
+    private WebElement firstNameImput;
+    @FindBy(xpath = "//input[@id='input-lastname']")
     private WebElement lastNameInput;
-    @FindBy(id = "input-email")
+    @FindBy(xpath = "//input[@id='input-email']")
     private WebElement emailInput;
-    @FindBy(id = "input-password")
+    @FindBy(xpath = "//input[@id='input-password']")
     private WebElement passwordInput;
-    @FindBy(css = "input[value='1'][name='agree']")
-    private WebElement privacyToggle;
+    @FindBy(xpath = "//input[@name='agree']")
+    private WebElement privacyPolacy;
     @FindBy(xpath = "//button[normalize-space()='Continue']")
-    private WebElement continuebtn;
+    private WebElement continueButton;
 
-    public void fillInTheRegisterForm(String firstName, String lastName, String email, String password){
-        firstNameInput.sendKeys(firstName);
-        System.out.println("The entered First Name is: " + firstName);
-
+    public void fillInTheRegisterForm(String firstName, String lastName, String email, String password) {
+        firstNameImput.sendKeys(firstName);
+        System.out.println("The entered first name is: " + firstName);
         lastNameInput.sendKeys(lastName);
-        System.out.println("The entered Last Name is: " + lastName);
-
+        System.out.println("The entered last name is: " + lastName);
         emailInput.sendKeys(email);
-        System.out.println("The entered email is: " + email);
-
+        System.out.println("The entered email is:" + email);
         passwordInput.sendKeys(password);
-        System.out.println("The entered password is: " + password);
+        System.out.println("The entered password is:" + password);
     }
 
-    public void switchOnThePrivacyToggle(WebDriver driver) throws InterruptedException {
-        ScrollManager.scrollToElement(driver, privacyToggle);
-        privacyToggle.click();
+    public void switchOnThePrivacyPolacy(WebDriver driver) throws InterruptedException {
+        ScrollManager.scrollToElement(driver, privacyPolacy);
+        privacyPolacy.click();
     }
 
-    public void clickOnContinueBtn(){
-        continuebtn.click();
+    public void clickOnContinueButton() {
+        continueButton.click();
     }
 }
